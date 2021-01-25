@@ -1,0 +1,7 @@
+@import "../../parentComponent/creator";
+
+@import "vars";
+@import "maker";
+
+
+@include BootCreate('bm', $margin_congig,'margin');

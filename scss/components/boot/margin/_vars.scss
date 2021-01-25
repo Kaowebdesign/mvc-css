@@ -1,0 +1,14 @@
+/*
+* Extends variables of Parent Component
+*/
+@import "../../parentComponent/vars";
+
+
+$margin_congig:(
+   1: $baseMargin * 1,
+   2: $baseMargin * 2,
+   3: $baseMargin * 3,
+   4: $baseMargin * 4,
+   5: $baseMargin * 5,
+   6: $baseMargin * 10
+);

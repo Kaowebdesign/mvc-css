@@ -1,0 +1,140 @@
+/*
+* Parent Component _creator
+*/
+
+%top-stiky {
+  position: sticky;
+  top: 0;
+  background: #fff;
+  z-index: 100;
+}
+
+%inline-scroll {
+  overflow-y: scroll;
+  -ms-overflow-style: none; // IE 10+
+  scrollbar-width: none; // Firefox
+  overflow-x: hidden;
+  &::-webkit-scrollbar {
+    display: none;
+    width: 0px;
+    /* Remove scrollbar space */
+    background: transparent;
+    /* Optional: just make scrollbar invisible */
+  }
+}
+
+%noneOutline {
+  &:active,
+  &:focus {
+    outline: none !important;
+  }
+  &::-moz-focus-inner {
+    border: 0 !important;
+  }
+}
+
+%nullLink {
+  text-decoration: none;
+  &:hover {
+    text-decoration: initial;
+  }
+}
+
+%nullList {
+  list-style-type: none;
+}
+
+%nullInputs {
+  outline: none;
+}
+
+%overflowHidden {
+  overflow: hidden;
+}
+
+%d-flex {
+  display: flex;
+}
+
+%flex-column {
+  flex-direction: column;
+}
+
+%flex-full-center {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  z-index: 2;
+}
+
+%justify-center {
+  justify-content: center;
+}
+
+%align-center {
+  align-items: center;
+}
+
+%text-center {
+  text-align: center;
+}
+
+%text-uppercase {
+  text-transform: uppercase;
+}
+
+%text-capitalisze {
+  text-transform: capitalize;
+}
+
+%base-position {
+  position: relative;
+}
+
+%base-index {
+  position: relative;
+  z-index: 1;
+}
+
+%absolute-position {
+  position: absolute;
+}
+
+%margin-center {
+  margin: 0 auto;
+}
+
+%base-transition {
+  transition: .3s;
+}
+
+%full-absolute {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+%base-font {
+}
+
+%second-font {
+}
+
+%regular-font {
+  font-weight: 400;
+}
+
+%medium-font {
+  font-weight: 500;
+}
+
+%bold-font {
+  font-weight: 700;
+}
+
+%base-border {
+}
+
+

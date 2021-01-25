@@ -1,0 +1,165 @@
+/*
+* Parent component _maker.scss
+* 
+* Here you can see basic functions which can help you generate classes.
+* Child components can extend parent maker functions.
+* 
+*/
+
+
+/*
+* Create component with class name and defined params
+* 
+* @param {$component_name} Class name
+* @param {$modify} Class name element
+* @param {$params} Associative array includes: Class name modifier and value
+* @param {$style} Css property
+* 
+**/
+@mixin Component($component_name,$element,$params,$style) {
+    @each $modifier,$v_size in $params {
+        .#{$component_name}_#{$element}_#{$modifier}{
+            #{$style}:$v_size;
+        }
+    }
+}
+/* This you should use for create some styles of your own component */
+@mixin Create($modify,$params,$style) {
+    @each $size,$v_size in $params {
+        &_#{$modify}_#{$size}{
+            #{$style}:$v_size;
+        }
+    }
+}
+@mixin CreateOffModify($params,$style) {
+    @each $size,$v_size in $params {
+        &_#{$size}{
+            #{$style}:$v_size;
+        }
+    }
+}
+
+@mixin CreateBackImageRange($modify, $params, $style) {
+    @each $key,$value in $params {
+        &_#{$modify}_#{$key}{
+            #{$style}:url(#{$value});
+        }
+    }
+    
+}
+
+@mixin CreateMedia($modify,$params,$style,$breakpoint) {
+    @media only screen and (max-width:$breakpoint) {
+        @each $size,$v_size in $params {
+            &_#{$modify}_#{$size}{
+                #{$style}:$v_size;
+            }
+        }
+    }
+}
+
+@mixin CreateMediaMobFirst($modify,$params,$style,$breakpoint) {
+    @media only screen and (min-width:$breakpoint) {
+        @each $size,$v_size in $params {
+            &_#{$modify}_#{$size}{
+                #{$style}:$v_size;
+            }
+        }
+    }
+}
+
+@mixin CreateRange($params,$style){
+    @each $class_name,$style_value in $params {
+        &_#{$class_name}{
+            #{$style}:#{$style_value};
+        }
+    }
+}
+
+@mixin CreateRangeAdditional($params,$additional_params,$style,$style_additional){
+    @each $class_name,$style_value in $params {
+        &_#{$class_name}{
+            #{$style}:#{$style_value};
+            @each $in_style,$in_value in $additional_params{
+                @if $in_style == $class_name{
+                    #{$style_additional}:#{$in_value};
+                }
+            }
+        }
+    }
+}
+
+@mixin SetConfig($params) {
+    @each $style,$value in $params {
+        #{$style}:$value;
+    }
+}
+
+@mixin SetHoverConfig($params) {
+    &:hover {
+        @each $style, $value in $params {
+            #{$style}: $value;
+        }
+    }
+}
+@mixin SetConfigMedia($params,$breakpoint) {
+    @media only screen and (max-width:$breakpoint) {
+        @each $style,$value in $params {
+            #{$style}:$value;
+        }
+    }
+}
+
+@mixin SetConfigMediaMobFirst($params,$breakpoint) {
+    @media only screen and (min-width:$breakpoint) {
+        @each $style,$value in $params {
+            #{$style}:$value;
+        }
+    }
+}
+
+@mixin SetExtensions($params) {
+    @each $ext_name in $params {
+        @extend %#{$ext_name};
+    }
+}
+
+@mixin ChangeVar($style,$new_value,$breakpoint){
+    @media only screen and (max-width:$breakpoint) {
+        #{$style}:$new_value;
+    }
+}
+
+@mixin ChangeVarMobFirst($style,$new_value,$breakpoint){
+    @media only screen and (min-width:$breakpoint) {
+        #{$style}:$new_value;
+    }
+}
+
+@mixin InitialComponent($config){
+    @each $type_style,$style_values in $config{
+        // $str_start: str-length('$button');
+        // $str_end: str-length(quote($style_values));
+        // $modify: $style_values;
+        &{
+            @include Create($type_style,$style_values,$type_style);
+        }
+    }
+}
+/* Mixins for _creater section  */
+@mixin InitialBackImage ($url, $backSize, $position) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: $backSize;
+    background-position: $position;
+}
+/*
+* Mixins for boot components
+*/
+@mixin BootCreate($template_name, $params, $style) {
+    @each $modify, $value in $params {
+        %#{$template_name}-#{$modify} {
+            #{$style}:#{$value}
+        }
+    }
+}
