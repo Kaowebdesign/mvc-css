@@ -3,5 +3,38 @@
 @import "vars";
 @import "maker";
 
-
-@include BootCreate('bm', $margin_congig,'margin');
+/*
+* Generate extensions with name 'mg-{number}'
+* Using for style 'margin'
+*/
+@include BootCreateTemplate('mg', $margin_config,'margin');
+/*
+* Generate extensions with name 'mg-t-{number}'
+* Using for style 'margin-top'
+*/
+@include BootCreateTemplate('mg-t', $margin_config,'margin-top');
+/*
+* Generate extensions with name 'mg-b-{number}'
+* Using for style 'margin-bottom'
+*/
+@include BootCreateTemplate('mg-b', $margin_config,'margin-bottom');
+/*
+* Generate extensions with name 'mg-r-{number}'
+* Using for style 'margin-right'
+*/
+@include BootCreateTemplate('mg-r', $margin_config,'margin-right');
+/*
+* Generate extensions with name 'mg-l-{number}'
+* Using for style 'margin-left'
+*/
+@include BootCreateTemplate('mg-l', $margin_config,'margin-left');
+/*
+* Generate extensions with name 'mg-x-{number}'
+* Using for style 'margin-left / margin-right'
+*/
+@include BootCreateTemplate('mg-x', $margin_x_config,'margin');
+/*
+* Generate extensions with name 'mg-y-{number}'
+* Using for style 'margin-top / margin-bottom'
+*/
+@include BootCreateTemplate('mg-y', $margin_y_config,'margin');

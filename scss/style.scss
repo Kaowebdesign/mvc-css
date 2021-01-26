@@ -4,10 +4,3 @@ body, html{
 }
 
 @import './components/bootComponent/creater';
-
-.mt-1{
-    @extend %bm-1;
-}
-.mt-2{
-    @extend %bm-1;
-}

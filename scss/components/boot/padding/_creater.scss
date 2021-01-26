@@ -1,8 +1,40 @@
-@import "../parentComponent/creator";
+@import "../../parentComponent/creator";
 
 @import "vars";
 @import "maker";
 
-.base-padding{
-
-}
+/*
+* Generate extensions with name 'pd-{number}'
+* Using for style 'padding'
+*/
+@include BootCreateTemplate('pd', $padding_config,'padding');
+/*
+* Generate extensions with name 'pd-t-{number}'
+* Using for style 'padding-top'
+*/
+@include BootCreateTemplate('pd-t', $padding_config,'padding-top');
+/*
+* Generate extensions with name 'pd-b-{number}'
+* Using for style 'padding-bottom'
+*/
+@include BootCreateTemplate('pd-b', $padding_config,'padding-bottom');
+/*
+* Generate extensions with name 'pd-r-{number}'
+* Using for style 'padding-right'
+*/
+@include BootCreateTemplate('pd-r', $padding_config,'padding-right');
+/*
+* Generate extensions with name 'pd-l-{number}'
+* Using for style 'padding-left'
+*/
+@include BootCreateTemplate('pd-l', $padding_config,'padding-left');
+/*
+* Generate extensions with name 'mg-x-{number}'
+* Using for style 'padding-left / margin-right'
+*/
+@include BootCreateTemplate('pd-x', $padding_x_config,'padding');
+/*
+* Generate extensions with name 'mg-y-{number}'
+* Using for style 'padding-top / margin-bottom'
+*/
+@include BootCreateTemplate('pd-y', $padding_y_config,'padding');

@@ -1,5 +1,14 @@
 @import "vars";
 @import "maker";
 
-
+/*
+* Import boot components
+*/
 @import "../boot/margin/creater";
+@import "../boot/padding/creater";
+/*
+* Create classes via boot components 
+*/
+
+@include BootCreateClass($margin_extensions);
+@include BootCreateClass($padding_extensions);

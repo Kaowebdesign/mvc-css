@@ -8,74 +8,110 @@
 
 
 /*
-* Create component with class name and defined params
+* Create full class name for component with defined params
 * 
 * @param {$component_name} Class name
-* @param {$modify} Class name element
+* @param {$element} Class name element
 * @param {$params} Associative array includes: Class name modifier and value
 * @param {$style} Css property
 * 
-**/
-@mixin Component($component_name,$element,$params,$style) {
-    @each $modifier,$v_size in $params {
+*/
+@mixin CreateComponent($component_name,$element,$params,$style) {
+    @each $modifier,$value in $params {
         .#{$component_name}_#{$element}_#{$modifier}{
-            #{$style}:$v_size;
+            #{$style}:$value;
         }
     }
 }
-/* This you should use for create some styles of your own component */
-@mixin Create($modify,$params,$style) {
-    @each $size,$v_size in $params {
-        &_#{$modify}_#{$size}{
-            #{$style}:$v_size;
+/*
+* Generate element and modifier for defined class name
+* 
+* @param {$elem} Class name element
+* @param {$params} Associative array includes: Class name modifier and value
+* @param {$style} Css property
+* 
+*/
+@mixin Create($elem,$params,$style) {
+    @each $modifier,$value in $params {
+        &_#{$elem}_#{$modifier}{
+            #{$style}:$value;
         }
     }
 }
-@mixin CreateOffModify($params,$style) {
-    @each $size,$v_size in $params {
-        &_#{$size}{
-            #{$style}:$v_size;
+/*
+* Generate element and modifier from associative array of configs
+* 
+* @param {$config} Associative array wich includes configs (Class name modifier and value)
+* 
+*/
+@mixin CreateConfig($config){
+    @each $type_style,$style_values in $config{
+        // $str_start: str-length('$button');
+        // $str_end: str-length(quote($style_values));
+        // $modify: $style_values;
+        &{
+            @include Create($type_style,$style_values,$type_style);
         }
     }
 }
-
-@mixin CreateBackImageRange($modify, $params, $style) {
-    @each $key,$value in $params {
-        &_#{$modify}_#{$key}{
+/*
+* Generate element with params
+* 
+* @param {$params} Associative array includes: Class name modifier and value
+* @param {$style} Css property
+* 
+*/
+@mixin CreateElement($params,$style){
+    @each $elem,$value in $params {
+        &_#{$elem}{
+            #{$style}:#{$value};
+        }
+    }
+}
+/*
+* Generate element and modifier with background image params
+* 
+* @param {$elem} Class name element
+* @param {$params} Associative array includes: Class name modifier and value
+* @param {$style} Css property
+* 
+*/
+@mixin CreateBackImageRange($elem, $params, $style) {
+    @each $modifier,$value in $params {
+        &_#{$elem}_#{$modifier}{
             #{$style}:url(#{$value});
         }
     }
     
 }
-
-@mixin CreateMedia($modify,$params,$style,$breakpoint) {
-    @media only screen and (max-width:$breakpoint) {
-        @each $size,$v_size in $params {
-            &_#{$modify}_#{$size}{
-                #{$style}:$v_size;
+/*
+* Create element and modifier in media queries
+* 
+* @param {$elem} Class name element
+* @param {$params} Associative array includes: Class name modifier and value
+* @param {$style} Css property
+* @param {$breakpoint} Media query breakpoint
+* @param {$type} Type of media 'max' or 'min'
+* 
+*/
+@mixin CreateMedia($elem,$params,$style,$breakpoint,$type) {
+    @media only screen and (#{$type}-width:$breakpoint) {
+        @each $modifier,$value in $params {
+            &_#{$elem}_#{$modifier}{
+                #{$style}:$value;
             }
         }
     }
 }
-
-@mixin CreateMediaMobFirst($modify,$params,$style,$breakpoint) {
-    @media only screen and (min-width:$breakpoint) {
-        @each $size,$v_size in $params {
-            &_#{$modify}_#{$size}{
-                #{$style}:$v_size;
-            }
-        }
-    }
-}
-
-@mixin CreateRange($params,$style){
-    @each $class_name,$style_value in $params {
-        &_#{$class_name}{
-            #{$style}:#{$style_value};
-        }
-    }
-}
-
+/*
+* Connect two array of params
+* 
+* @param {$params} Associative array includes: Class name modifier and value
+* @param {$additional_params} Additionl params
+* @param {$style} Css property
+* @param {$style_additional} Additional Css property
+* 
+*/
 @mixin CreateRangeAdditional($params,$additional_params,$style,$style_additional){
     @each $class_name,$style_value in $params {
         &_#{$class_name}{
@@ -88,13 +124,23 @@
         }
     }
 }
-
+/*
+*  Creates styles in some class
+* 
+* @param {$params} Associative array includes: Class name modifier and value
+* 
+*/
 @mixin SetConfig($params) {
     @each $style,$value in $params {
         #{$style}:$value;
     }
 }
-
+/*
+*  Creates hover styles in some class
+* 
+* @param {$params} Associative array includes: Class name modifier and value
+* 
+*/
 @mixin SetHoverConfig($params) {
     &:hover {
         @each $style, $value in $params {
@@ -102,61 +148,41 @@
         }
     }
 }
-@mixin SetConfigMedia($params,$breakpoint) {
-    @media only screen and (max-width:$breakpoint) {
+/*
+*  Creates styles in media query
+* 
+* @param {$params} Associative array includes: Class name modifier and value
+* @param {$breakpoint} Media query breakpoint
+* @param {$type} Type of media 'max' or 'min'
+* 
+*/
+@mixin SetConfigMedia($params,$breakpoint,$type) {
+    @media only screen and (#{$type}-width:$breakpoint) {
         @each $style,$value in $params {
             #{$style}:$value;
         }
     }
 }
-
-@mixin SetConfigMediaMobFirst($params,$breakpoint) {
-    @media only screen and (min-width:$breakpoint) {
-        @each $style,$value in $params {
-            #{$style}:$value;
-        }
-    }
-}
-
+/*
+*  Set extensions for some class
+* 
+* @param {$params} Array of extensions name
+* 
+*/
 @mixin SetExtensions($params) {
     @each $ext_name in $params {
         @extend %#{$ext_name};
     }
 }
-
-@mixin ChangeVar($style,$new_value,$breakpoint){
-    @media only screen and (max-width:$breakpoint) {
-        #{$style}:$new_value;
-    }
-}
-
-@mixin ChangeVarMobFirst($style,$new_value,$breakpoint){
-    @media only screen and (min-width:$breakpoint) {
-        #{$style}:$new_value;
-    }
-}
-
-@mixin InitialComponent($config){
-    @each $type_style,$style_values in $config{
-        // $str_start: str-length('$button');
-        // $str_end: str-length(quote($style_values));
-        // $modify: $style_values;
-        &{
-            @include Create($type_style,$style_values,$type_style);
-        }
-    }
-}
-/* Mixins for _creater section  */
-@mixin InitialBackImage ($url, $backSize, $position) {
-    background-image: url($url);
-    background-repeat: no-repeat;
-    background-size: $backSize;
-    background-position: $position;
-}
 /*
-* Mixins for boot components
+* Create templates for component
+* 
+* @param {$template_name} Base template name
+* @param {$params} Associative array includes: Template name modifier and value
+* @param {$style} Css property
+* 
 */
-@mixin BootCreate($template_name, $params, $style) {
+@mixin BootCreateTemplate($template_name, $params, $style) {
     @each $modify, $value in $params {
         %#{$template_name}-#{$modify} {
             #{$style}:#{$value}

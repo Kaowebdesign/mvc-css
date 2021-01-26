@@ -1,1 +1,17 @@
 @import "../parentComponent/maker";
+
+/*
+* Creates classes from array of extension name
+* 
+* @param {$extension_array} Array of extensions name
+* 
+*/
+@mixin BootCreateClass($extension_array) {
+    @each $extension_name in $extension_array {
+        .#{$extension_name}{
+            @extend %#{$extension_name};
+        }
+    }
+}
+
+

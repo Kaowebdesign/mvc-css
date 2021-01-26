@@ -7,10 +7,14 @@
 */
 
 /*
-* Started values for generate margin and padding classes
+* Started values for generate boot components
 */
-$basePadding: 4px;
-$baseMargin: 4px;
-
+$config: (
+    margin: 4px,
+    padding: 4px
+);
+/*
+* Base colors
+*/
 $basicBlack: #000;
 $basicWhite: #fff;
