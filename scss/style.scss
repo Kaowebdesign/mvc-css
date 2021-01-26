@@ -4,3 +4,9 @@ body, html{
 }
 
 @import './components/bootComponent/creater';
+
+.element{
+  @include ConnectMedia('sm','min') {
+    display: block;
+  }
+}

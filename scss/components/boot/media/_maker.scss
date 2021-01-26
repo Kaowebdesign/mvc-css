@@ -1,0 +1,21 @@
+@import "../../parentComponent/maker";
+
+/*
+* Put your styles to media query
+*
+* @param {$breakpoint} Media query breakpoint
+* @param {$type} Media query type: min | max
+*
+*/
+@mixin ConnectMedia($breakpoint,$type) { 
+    @if map-has-key($media, $breakpoint) {
+      @media (#{$type}-width: #{map-get($media, $breakpoint)}) {
+        @content;
+      }
+    }
+  
+    @else {
+      @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+          + "Please make sure it is defined in `$breakpoints` map.";
+    }
+  }
