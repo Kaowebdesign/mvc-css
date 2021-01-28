@@ -2613,7 +2613,7 @@ crypto-browserify@^3.11.0:
     randombytes "^2.0.0"
     randomfill "^1.0.3"
 
-css-parse@~2.0.0:
+css-parse@^2.0.0, css-parse@~2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/css-parse/-/css-parse-2.0.0.tgz#a468ee667c16d81ccf05c58c38d2a97c780dbfd4"
   integrity sha1-pGjuZnwW2BzPBcWMONKpfHgNv9Q=
@@ -2634,6 +2634,13 @@ css-select@^2.0.0:
     css-what "^3.2.1"
     domutils "^1.7.0"
     nth-check "^1.0.2"
+
+css-stringify@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/css-stringify/-/css-stringify-2.0.0.tgz#2ef33dcf498c3d3ee82bd73d0a01ac28628cd0fa"
+  integrity sha1-LvM9z0mMPT7oK9c9CgGsKGKM0Po=
+  dependencies:
+    css "^2.0.0"
 
 css-tree@1.0.0-alpha.37:
   version "1.0.0-alpha.37"
@@ -4104,6 +4111,14 @@ graceful-fs@4.X, graceful-fs@^4.0.0, graceful-fs@^4.1.10, graceful-fs@^4.1.11, g
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.4.tgz#2256bde14d3632958c465ebc96dc467ca07a29fb"
   integrity sha512-WjKPNJF79dtJAVniUlGGWHYGz2jWxT6VhN/4m1NdkbZ2nOsEF+cI1Edgql5zCRhs/VsQYRvrXctxktVXZUkixw==
 
+group-css-media-queries@^1.4.1:
+  version "1.4.1"
+  resolved "https://registry.yarnpkg.com/group-css-media-queries/-/group-css-media-queries-1.4.1.tgz#8e54cb31cc45a9c5e08eb838940b8a28038d7175"
+  integrity sha1-jlTLMcxFqcXgjrg4lAuKKAONcXU=
+  dependencies:
+    css-parse "^2.0.0"
+    css-stringify "^2.0.0"
+
 gulp-autoprefixer@^7.0.1:
   version "7.0.1"
   resolved "https://registry.yarnpkg.com/gulp-autoprefixer/-/gulp-autoprefixer-7.0.1.tgz#3c0dc26afc802d317e7560a7f760a0399049075a"
@@ -4177,6 +4192,15 @@ gulp-dependents@^1.2.5:
     fancy-log "^1.3.3"
     through2 "^3.0.1"
     vinyl "^2.2.0"
+
+gulp-group-css-media-queries@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/gulp-group-css-media-queries/-/gulp-group-css-media-queries-1.2.2.tgz#c0436b9474086cbe1ab3eb5bc1a3afef4d6b37d6"
+  integrity sha512-uOs8aJ5TV12aRstfc6pn107edDT2XSY7KNAU721Dz+gKHu/AUIlAaOdFdo9n/eHWqfb9QWMArrM8fiPOCqZPGg==
+  dependencies:
+    group-css-media-queries "^1.4.1"
+    plugin-error "^1.0.1"
+    through2 "^2.0.3"
 
 gulp-imagemin@^7.1.0:
   version "7.1.0"

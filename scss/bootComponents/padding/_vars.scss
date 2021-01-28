@@ -2,7 +2,23 @@
 * Extends variables of Parent Component
 */
 
-@import "../../parentComponent/vars";
+@import "../../configComponents/parentComponent/vars";
+
+$padding_base: (
+   'pd':'padding',
+   'pd-t':'padding-top',
+   'pd-r':'padding-right',
+   'pd-b':'padding-bottom',
+   'pd-l':'padding-left'
+);
+
+$padding_x_base: (
+   'pd-x':'padding'
+);
+
+$padding_y_base: (
+   'pd-y':'padding'
+);
 
 $padding_config:(
    1: map-get($map: $config, $key: 'padding') * 1,

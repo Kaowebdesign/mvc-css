@@ -1,8 +1,23 @@
 /*
 * Extends variables of Parent Component
 */
-@import "../../parentComponent/vars";
+@import "../../configComponents/parentComponent/vars";
 
+$margin_base: (
+   'mg':'margin',
+   'mg-t':'margin-top',
+   'mg-r':'margin-right',
+   'mg-b':'margin-bottom',
+   'mg-l':'margin-left'
+);
+
+$margin_x_base: (
+   'mg-x':'margin'
+);
+
+$margin_y_base: (
+   'mg-y':'margin'
+);
 
 $margin_config:(
    1: map-get($map: $config, $key: 'margin') * 1,

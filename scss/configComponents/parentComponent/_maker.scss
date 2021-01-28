@@ -189,3 +189,71 @@
         }
     }
 }
+/*
+* Create templates for component with media query
+* 
+* @param {$template_name} Base template name
+* @param {$params} Associative array includes: Template name modifier and value
+* @param {$style} Css property
+* @param {$breakpoint} Media query breakpoint
+* @param {$type} Media query type: min | max
+* 
+*/
+@mixin BootCreateTemplateWithMedia($template_name, $params, $style, $breakpoint, $type) {
+    @if map-has-key($media, $breakpoint) {
+        @each $modify, $value in $params {
+            %#{$template_name}-#{$modify} {
+                @media only screen and (#{$type}-width: #{map-get($media, $breakpoint)}) {
+                    #{$style}:#{$value}
+                }
+            }
+        }
+    }
+    @else {
+        @warn "Unfortunately, no value could be retrieved from your breakpoint. "
+            + "Please make sure it is defined in `$breakpoints` map.";
+    }
+    
+}
+/*
+* Create templates for component via range of template name and styles
+* 
+* @param {$classes_range} Associative array includes: template name and style
+* @param {$params} Associative array includes: Template name modifier and value
+* 
+*/
+@mixin BootCreateRangeTemplate($classes_range, $params) {
+    @each $template_name, $style in $classes_range {
+        @each $modify, $value in $params {
+            %#{$template_name}-#{$modify} {
+                #{$style}:#{$value}
+            }
+        }
+    }
+}
+/*
+* Create templates for component with media query via range of template name and styles
+* 
+* @param {$classes_range} Associative array includes: template name and style
+* @param {$params} Associative array includes: Template name modifier and value
+* @param {$breakpoint} Media query breakpoint
+* @param {$type} Media query type: min | max
+* 
+*/
+@mixin BootCreateRangeMediaTemplate($classes_range, $params, $breakpoint, $type) {
+    @if map-has-key($media, $breakpoint) {
+        @each $template_name, $style in $classes_range {
+            @each $modify, $value in $params {
+                %#{$template_name}-#{$breakpoint}-#{$modify} {
+                    @media only screen and (#{$type}-width: #{map-get($media, $breakpoint)}) {
+                        #{$style}:#{$value}
+                    }
+                }
+            }
+        }
+    }
+    @else {
+        @warn "Unfortunately, no value could be retrieved from your breakpoint. "
+            + "Please make sure it is defined in `$breakpoints` map.";
+    }
+}

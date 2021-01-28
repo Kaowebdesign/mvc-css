@@ -3,10 +3,4 @@ body, html{
   color: blue;
 }
 
-@import './components/bootComponent/creater';
-
-.element{
-  @include ConnectMedia('sm','min') {
-    display: block;
-  }
-}
+@import './bootComponents/bootComponent/creater';

@@ -20,6 +20,7 @@ const gulp                      = require('gulp'),
     uglify                    = require('gulp-uglify'),
     concat                    = require('gulp-concat'),
     imagemin                  = require('gulp-imagemin'),
+    gcmq                      = require('gulp-group-css-media-queries'),
     browserSync               = require('browser-sync').create(),
     dependents                = require('gulp-dependents'),
 
@@ -41,6 +42,7 @@ gulp.task('scss', () => {
         .pipe(plumber())
         .pipe(dependents())
         .pipe(sass())
+        .pipe(gcmq())
         .pipe(autoprefixer())
         .pipe(minifyCss())
         .pipe(sourcemaps.write('.'))

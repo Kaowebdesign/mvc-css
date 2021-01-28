@@ -1,0 +1,39 @@
+@import "../../configComponents/parentComponent/creator";
+
+@import "vars";
+@import "maker";
+
+/*
+*
+* Generate extensions with name 'pd-{number}' | 'pd-{size}-{number}'
+* Generate extensions with name 'pd-x-{number}'
+* Generate extensions with name 'pd-y-{number}'
+* 
+*/
+@include BootCreateRangeTemplate($padding_base,$padding_config);
+@include BootCreateRangeTemplate($padding_x_base,$padding_x_config);
+@include BootCreateRangeTemplate($padding_y_base,$padding_y_config);
+/*
+*
+* Generate extensions with media queries and name 'pd-{breakpoint}-{number}' | 'pd-{size}-{breakpoint}-{number}'
+* 
+*/
+@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'sm','min');
+@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'sm','min');
+@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'sm','min');
+
+@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'md','min');
+@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'md','min');
+@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'md','min');
+
+@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'lg','min');
+@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'lg','min');
+@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'lg','min');
+
+@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'xl','min');
+@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'xl','min');
+@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'xl','min');
+
+@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'xxl','min');
+@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'xxl','min');
+@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'xxl','min');
