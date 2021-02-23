@@ -1,0 +1,6 @@
+@import "vars";
+@import "maker";
+
+@import '../../bootComponents/bootComponent/creater';
+
+@include BootCreateClass($margin_home_extensions);

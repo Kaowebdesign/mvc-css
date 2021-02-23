@@ -244,7 +244,7 @@
     @if map-has-key($media, $breakpoint) {
         @each $template_name, $style in $classes_range {
             @each $modify, $value in $params {
-                %#{$template_name}-#{$breakpoint}-#{$modify} {
+                %#{$breakpoint}--#{$template_name}-#{$modify} {
                     @media only screen and (#{$type}-width: #{map-get($media, $breakpoint)}) {
                         #{$style}:#{$value}
                     }
