@@ -257,3 +257,47 @@
             + "Please make sure it is defined in `$breakpoints` map.";
     }
 }
+/*
+* Generate template and his style rules via params
+* 
+* @param {$params} Associative array includes: Template name modifier and value
+* 
+*/
+@mixin BootGenerateTemplateFromParams($params) {
+ 
+    @each $class_name, $style_rule in $params {
+
+        @each $style, $value in $style_rule {
+            
+            %#{$class_name}{
+                #{$style}: #{$value};
+            }
+        }
+    }
+}
+/*
+* Generate template and his style rules via params with media queries
+* 
+* @param {$params} Associative array includes: Template name modifier and value
+* @param {$breakpoints_config} Associative array includes: media query breakpoint name and his value in px
+* @param {$breakpoin_type} breakpoin type: max or min (width)
+* 
+*/
+@mixin BootMediaGenerateTemplateFromParams($params, $breakpoints_config, $breakpoin_type) {
+ 
+    @each $class_name, $style_rule in $params {
+
+        @each $style, $value in $style_rule {
+
+            @each $breakpoint_name, $breakpoint_value in $breakpoints_config {
+
+                @media only screen and (#{$breakpoin_type}-width: #{$breakpoint_value}) {
+                    .#{$breakpoint_name}--#{$class_name}{
+                        #{$style}: #{$value};
+                    }
+                }
+            }
+            
+        }
+    }
+}

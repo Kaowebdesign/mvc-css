@@ -17,23 +17,23 @@
 * Generate extensions with media queries and name 'mg-{breakpoint}-{number}' | 'mg-{size}-{breakpoint}-{number}'
 * 
 */
-@include BootCreateRangeMediaTemplate($margin_base,$margin_config,'sm','min');
-@include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'sm','min');
-@include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'sm','min');
+@include BootCreateRangeMediaTemplate($margin_base,$margin_config,'sm',$media-type);
+@include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'sm',$media-type);
+@include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'sm',$media-type);
 
-@include BootCreateRangeMediaTemplate($margin_base,$margin_config,'md','min');
-@include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'md','min');
-@include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'md','min');
+@include BootCreateRangeMediaTemplate($margin_base,$margin_config,'md',$media-type);
+@include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'md',$media-type);
+@include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'md',$media-type);
 
-@include BootCreateRangeMediaTemplate($margin_base,$margin_config,'lg','min');
-@include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'lg','min');
-@include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'lg','min');
+@include BootCreateRangeMediaTemplate($margin_base,$margin_config,'lg',$media-type);
+@include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'lg',$media-type);
+@include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'lg',$media-type);
 
-@include BootCreateRangeMediaTemplate($margin_base,$margin_config,'xl','min');
-@include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'xl','min');
-@include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'xl','min');
+@include BootCreateRangeMediaTemplate($margin_base,$margin_config,'xl',$media-type);
+@include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'xl',$media-type);
+@include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'xl',$media-type);
 
-@include BootCreateRangeMediaTemplate($margin_base,$margin_config,'xxl','min');
-@include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'xxl','min');
-@include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'xxl','min');
+@include BootCreateRangeMediaTemplate($margin_base,$margin_config,'xxl',$media-type);
+@include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'xxl',$media-type);
+@include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'xxl',$media-type);
 

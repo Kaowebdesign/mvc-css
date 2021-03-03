@@ -5,21 +5,28 @@
 
 
 /*
-* Basic flexbox class names and his rules
+* Basic flexbox class/template names and his rules
 */
+
 $flex_basic_rules: (
-   'ds-flex':'display: flex',
-   'ds-in-flex':'display: inline-flex',
-   'fl-wrap': 'flex-wrap: wrap',
-   'fl-no-wrap': 'flex-wrap: no-wrap',
-   'fl-direction-row': 'flex-direction: row',
-   'fl-direction-row-rev': 'flex-direction: row-revers',
-   'fl-direction-col': 'flex-direction: column',
-   'fl-direction-col-rev': 'flex-direction: column-reverse',
-   'jus-content-start': 'justify-content: flex-start',
-   'jus-content-end': 'justify-content: flex-end',
-   'jus-content-center': 'justify-content: center',
-   'jus-content-around': 'justify-content: space-around',
-   'jus-content-between': 'justify-content: space-between',
-   'jus-content-stretch': 'justify-content: stretch',
+   'ds-flex': ('display':'flex'),
+   'ds-in-flex':('display': 'inline-flex'),
+   'fl-wrap': ('flex-wrap': 'wrap'),
+   'fl-no-wrap': ('flex-wrap': 'no-wrap'),
+   'fl-direction-row': ('flex-direction': 'row'),
+   'fl-direction-row-rev': ('flex-direction': 'row-revers'),
+   'fl-direction-col': ('flex-direction': 'column'),
+   'fl-direction-col-rev': ('flex-direction': 'column-reverse'),
+   'jus-content-start': ('justify-content': 'flex-start'),
+   'jus-content-end': ('justify-content': 'flex-end'),
+   'jus-content-center': ('justify-content': 'center'),
+   'jus-content-around': ('justify-content': 'space-around'),
+   'jus-content-between': ('justify-content': 'space-between'),
+   'jus-content-stretch': ('justify-content': 'stretch'),
+   'ali-items-start': ('align-items': 'flex-start'),
+   'ali-items-end': ('align-items': 'flex-end'),
+   'ali-items-center': ('align-items': 'center'),
+   'ali-items-around': ('align-items': 'space-around'),
+   'ali-items-between': ('align-items': 'space-between'),
+   'ali-items-stretch': ('align-items': 'stretch'),
 );
