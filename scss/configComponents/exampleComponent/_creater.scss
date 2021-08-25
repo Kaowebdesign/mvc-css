@@ -1,8 +1,5 @@
-@import "../parentComponent/creator";
-
 @import "vars";
 @import "maker";
 
-.exampleClass{
-  @include SetConfig($example_config);
+.example-component{
 }
