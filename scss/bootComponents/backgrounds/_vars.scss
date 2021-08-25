@@ -1,0 +1,20 @@
+/*
+* Basic text class/template names and his rules
+*/
+
+$back_basic_rules: (
+    'bg-white': ('background':'#ffffff'),
+    'bgc-white':('background-color': '#ffffff'),
+    'bg-transparent':('background': 'transparent'),
+    'bg-primary':('background':  map-get($map: $colors, $key: 'primary')),
+    'bg-secondary':('background':  map-get($map: $colors, $key: 'secondary')),
+    'bg-button':('background': map-get($map: $colors, $key: 'button')),
+    'bg-button-hover':('background': map-get($map: $colors, $key: 'button-hover')),
+    'bg-button-active':('background': map-get($map: $colors, $key: 'button-active')),
+    'bg-button-disabled':('background': map-get($map: $colors, $key: 'button-diabled')),
+    'bg-card':('background':'#232323'),
+    'bgc-transparent':('background-color': 'transparent'),
+    'bgc-form':('background-color':'#2F2F30'),
+    'bgc-primary':('background-color':  map-get($map: $colors, $key: 'primary')),
+    'bgc-secondary':('background-color':  map-get($map: $colors, $key: 'secondary')),
+);

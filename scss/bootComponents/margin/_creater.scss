@@ -1,4 +1,3 @@
-@import "../../configComponents/parentComponent/creator";
 @import "vars";
 @import "maker";
 
@@ -12,6 +11,10 @@
 @include BootCreateRangeTemplate($margin_base,$margin_config);
 @include BootCreateRangeTemplate($margin_x_base,$margin_x_config);
 @include BootCreateRangeTemplate($margin_y_base,$margin_y_config);
+
+@include BootCreateRangeClass($margin_base,$margin_config);
+@include BootCreateRangeClass($margin_x_base,$margin_x_config);
+@include BootCreateRangeClass($margin_y_base,$margin_y_config);
 /*
 *
 * Generate extensions with media queries and name 'mg-{breakpoint}-{number}' | 'mg-{size}-{breakpoint}-{number}'
@@ -36,4 +39,26 @@
 @include BootCreateRangeMediaTemplate($margin_base,$margin_config,'xxl',$media-type);
 @include BootCreateRangeMediaTemplate($margin_x_base,$margin_x_config,'xxl',$media-type);
 @include BootCreateRangeMediaTemplate($margin_y_base,$margin_y_config,'xxl',$media-type);
+
+
+
+@include BootCreateRangeMediaClass($margin_base,$margin_config,'sm',$media-type);
+@include BootCreateRangeMediaClass($margin_x_base,$margin_x_config,'sm',$media-type);
+@include BootCreateRangeMediaClass($margin_y_base,$margin_y_config,'sm',$media-type);
+
+@include BootCreateRangeMediaClass($margin_base,$margin_config,'md',$media-type);
+@include BootCreateRangeMediaClass($margin_x_base,$margin_x_config,'md',$media-type);
+@include BootCreateRangeMediaClass($margin_y_base,$margin_y_config,'md',$media-type);
+
+@include BootCreateRangeMediaClass($margin_base,$margin_config,'lg',$media-type);
+@include BootCreateRangeMediaClass($margin_x_base,$margin_x_config,'lg',$media-type);
+@include BootCreateRangeMediaClass($margin_y_base,$margin_y_config,'lg',$media-type);
+
+@include BootCreateRangeMediaClass($margin_base,$margin_config,'xl',$media-type);
+@include BootCreateRangeMediaClass($margin_x_base,$margin_x_config,'xl',$media-type);
+@include BootCreateRangeMediaClass($margin_y_base,$margin_y_config,'xl',$media-type);
+
+@include BootCreateRangeMediaClass($margin_base,$margin_config,'xxl',$media-type);
+@include BootCreateRangeMediaClass($margin_x_base,$margin_x_config,'xxl',$media-type);
+@include BootCreateRangeMediaClass($margin_y_base,$margin_y_config,'xxl',$media-type);
 

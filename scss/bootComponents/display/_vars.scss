@@ -1,0 +1,11 @@
+/*
+* Basic display class/template names and his rules
+*/
+
+$display_basic_rules: (
+    'ds-block': ('display':'block'),
+    'ds-inline-block':('display': 'inline-block'),
+    'ds-inline':('display': 'inline'),
+    'ds-none':('display': 'none'),
+    'bs-transition':('transition': $basicTransition)
+);

@@ -1,0 +1,16 @@
+@import "vars";
+@import "maker";
+
+/*
+ * Generate templates
+ * Generate extensions with name '%ft-weight-light' (example)
+ */
+@include BootGenerateTemplateFromParams($font_basic_rules);
+@include BootMediaGenerateTemplateFromParams($font_basic_rules, $media, $media-type);
+/*
+ * Generate classes
+ * Generate class with name '.ft-weight-light' (example)
+ * Generate class with name '.{breakpoint}--ft-weight-light' (example)
+ */
+@include BootGenerateClassFromParams($font_basic_rules);
+@include BootMediaGenerateClassFromParams($font_basic_rules, $media, $media-type);

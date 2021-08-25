@@ -1,0 +1,13 @@
+/*
+* Basic text class/template names and his rules
+*/
+
+$sizes_basic_rules: (
+    'wd-100': ('width':'100%'),
+    'wd-min-100': ('min-width':'100%'),
+    'wd-auto': ('width':'auto'),
+    'wd-33': ('width':'33.333%'),
+    'ht-100': ('height':'100%'),
+    'ht-full-100': ('height':'100vh'),
+    'ht-auto': ('height':'auto'),
+);

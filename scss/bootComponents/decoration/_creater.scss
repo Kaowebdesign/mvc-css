@@ -1,0 +1,36 @@
+@import "vars";
+@import "maker";
+
+/*
+ * Generate templates
+ * Generate extensions with name '%cur-pointer' (example)
+ */
+@include BootGenerateTemplateFromParams($decoraton_basic_rules);
+@include BootMediaGenerateTemplateFromParams($decoraton_basic_rules, $media, $media-type);
+/*
+ * Generate classes
+ * Generate class with name '.cur-pointer'' (example)
+ * Generate class with name '.{breakpoint}--cur-pointer' (example)
+ */
+@include BootGenerateClassFromParams($decoraton_basic_rules);
+@include BootMediaGenerateClassFromParams($decoraton_basic_rules, $media, $media-type);
+
+%darken-1{
+    @extend %pos-relative;
+    &::after{
+        content:'';
+        @extend %bs-transition;
+        @extend %ds-block;
+        @extend %pos-absolute;
+        @extend %pos-top-0;
+        @extend %pos-left-0;
+        @extend %wd-100;
+        @extend %ht-100;
+        @extend %zin-1;
+        background-color: rgba(0,0,0,.5);
+    }
+}
+
+.darken-1{
+    @extend %darken-1;
+}

@@ -1,0 +1,20 @@
+/*
+* Basic text class/template names and his rules
+*/
+
+$border_basic_rules: (
+    'br-none':('border': 'none'),
+    'br-left-none':('border-left': 'none'),
+    'br-right-none':('border-right': 'none'),
+    'br-top-none':('border-top': 'none'),
+    'br-bottom-none':('border-bottom': 'none'),
+    'br-primary': ('border':'1px solid #363636'),
+    'br-top-primary': ('border-top':'1px solid #363636'),
+    'br-right-primary': ('border-right':'1px solid #363636'),
+    'br-bottom-primary': ('border-bottom':'1px solid #363636'),
+    'br-secondary':('border': '1px solid #4A4A4B'),
+    'br-bottom-secondary':('border-bottom':'1px solid #282828'),
+    'br-top-secondary':('border-top':'1px solid #282828'),
+    'brr-sm':('border-radius': '10px'),
+    'brr-md':('border-radius': '20px'),
+);

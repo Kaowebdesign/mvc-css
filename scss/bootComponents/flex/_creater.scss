@@ -1,7 +1,10 @@
-@import "../../configComponents/parentComponent/creator";
 @import "vars";
 @import "maker";
 
 
 @include BootGenerateTemplateFromParams($flex_basic_rules);
 @include BootMediaGenerateTemplateFromParams($flex_basic_rules, $media, $media-type);
+
+
+@include BootGenerateClassFromParams($flex_basic_rules);
+@include BootMediaGenerateClassFromParams($flex_basic_rules, $media, $media-type);

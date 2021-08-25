@@ -1,117 +1,65 @@
-/*
-* Parent component _maker.scss
-* 
-* Here you can see basic functions which can help you generate classes.
-* Child components can extend parent maker functions.
-* 
-*/
+/*=== Hello you are in parent MAKER ===*/
+/* This you can use for create full Component with class name */
+@mixin Component($component_name,$modify,$params,$style) {
+    @each $size,$v_size in $params {
+        .#{$component_name}_#{$modify}_#{$size}{
+            #{$style}:$v_size;
+        }
+    }
+}
+/* This you should use for create some styles of your own component */
+@mixin Create($modify,$params,$style) {
+    @each $size,$v_size in $params {
+        &_#{$modify}_#{$size}{
+            #{$style}:$v_size;
+        }
+    }
+}
+@mixin CreateOffModify($params,$style) {
+    @each $size,$v_size in $params {
+        &_#{$size}{
+            #{$style}:$v_size;
+        }
+    }
+}
 
-
-/*
-* Create full class name for component with defined params
-* 
-* @param {$component_name} Class name
-* @param {$element} Class name element
-* @param {$params} Associative array includes: Class name modifier and value
-* @param {$style} Css property
-* 
-*/
-@mixin CreateComponent($component_name,$element,$params,$style) {
-    @each $modifier,$value in $params {
-        .#{$component_name}_#{$element}_#{$modifier}{
-            #{$style}:$value;
-        }
-    }
-}
-/*
-* Generate element and modifier for defined class name
-* 
-* @param {$elem} Class name element
-* @param {$params} Associative array includes: Class name modifier and value
-* @param {$style} Css property
-* 
-*/
-@mixin Create($elem,$params,$style) {
-    @each $modifier,$value in $params {
-        &_#{$elem}_#{$modifier}{
-            #{$style}:$value;
-        }
-    }
-}
-/*
-* Generate element and modifier from associative array of configs
-* 
-* @param {$config} Associative array wich includes configs (Class name modifier and value)
-* 
-*/
-@mixin CreateConfig($config){
-    @each $type_style,$style_values in $config{
-        // $str_start: str-length('$button');
-        // $str_end: str-length(quote($style_values));
-        // $modify: $style_values;
-        &{
-            @include Create($type_style,$style_values,$type_style);
-        }
-    }
-}
-/*
-* Generate element with params
-* 
-* @param {$params} Associative array includes: Class name modifier and value
-* @param {$style} Css property
-* 
-*/
-@mixin CreateElement($params,$style){
-    @each $elem,$value in $params {
-        &_#{$elem}{
-            #{$style}:#{$value};
-        }
-    }
-}
-/*
-* Generate element and modifier with background image params
-* 
-* @param {$elem} Class name element
-* @param {$params} Associative array includes: Class name modifier and value
-* @param {$style} Css property
-* 
-*/
-@mixin CreateBackImageRange($elem, $params, $style) {
-    @each $modifier,$value in $params {
-        &_#{$elem}_#{$modifier}{
+@mixin CreateBackImageRange($modify, $params, $style) {
+    @each $key,$value in $params {
+        &_#{$modify}_#{$key}{
             #{$style}:url(#{$value});
         }
     }
     
 }
-/*
-* Create element and modifier in media queries
-* 
-* @param {$elem} Class name element
-* @param {$params} Associative array includes: Class name modifier and value
-* @param {$style} Css property
-* @param {$breakpoint} Media query breakpoint
-* @param {$type} Type of media 'max' or 'min'
-* 
-*/
-@mixin CreateMedia($elem,$params,$style,$breakpoint,$type) {
-    @media only screen and (#{$type}-width:$breakpoint) {
-        @each $modifier,$value in $params {
-            &_#{$elem}_#{$modifier}{
-                #{$style}:$value;
+
+@mixin CreateMedia($modify,$params,$style,$breakpoint) {
+    @media only screen and (max-width:$breakpoint) {
+        @each $size,$v_size in $params {
+            &_#{$modify}_#{$size}{
+                #{$style}:$v_size;
             }
         }
     }
 }
-/*
-* Connect two array of params
-* 
-* @param {$params} Associative array includes: Class name modifier and value
-* @param {$additional_params} Additionl params
-* @param {$style} Css property
-* @param {$style_additional} Additional Css property
-* 
-*/
+
+@mixin CreateMediaMobFirst($modify,$params,$style,$breakpoint) {
+    @media only screen and (min-width:$breakpoint) {
+        @each $size,$v_size in $params {
+            &_#{$modify}_#{$size}{
+                #{$style}:$v_size;
+            }
+        }
+    }
+}
+
+@mixin CreateRange($params,$style){
+    @each $class_name,$style_value in $params {
+        &_#{$class_name}{
+            #{$style}:#{$style_value};
+        }
+    }
+}
+
 @mixin CreateRangeAdditional($params,$additional_params,$style,$style_additional){
     @each $class_name,$style_value in $params {
         &_#{$class_name}{
@@ -124,23 +72,13 @@
         }
     }
 }
-/*
-*  Creates styles in some class
-* 
-* @param {$params} Associative array includes: Class name modifier and value
-* 
-*/
+
 @mixin SetConfig($params) {
     @each $style,$value in $params {
         #{$style}:$value;
     }
 }
-/*
-*  Creates hover styles in some class
-* 
-* @param {$params} Associative array includes: Class name modifier and value
-* 
-*/
+
 @mixin SetHoverConfig($params) {
     &:hover {
         @each $style, $value in $params {
@@ -148,79 +86,78 @@
         }
     }
 }
-/*
-*  Creates styles in media query
-* 
-* @param {$params} Associative array includes: Class name modifier and value
-* @param {$breakpoint} Media query breakpoint
-* @param {$type} Type of media 'max' or 'min'
-* 
-*/
-@mixin SetConfigMedia($params,$breakpoint,$type) {
-    @media only screen and (#{$type}-width:$breakpoint) {
+@mixin SetActiveConfig($params) {
+    &:active,
+    &:focus{
+        @each $style, $value in $params {
+            #{$style}: $value;
+        }
+    }
+}
+@mixin SetDisabledConfig($params) {
+    &[disabled]{
+        @each $style, $value in $params {
+            #{$style}: $value;
+        }
+    }
+}
+@mixin SetConfigMedia($params,$breakpoint) {
+    @media only screen and (max-width: $breakpoint) {
         @each $style,$value in $params {
             #{$style}:$value;
         }
     }
 }
-/*
-*  Set extensions for some class
-* 
-* @param {$params} Array of extensions name
-* 
-*/
+
+@mixin SetConfigMediaMobFirst($params,$breakpoint) {
+    @media only screen and (min-width:$breakpoint) {
+        @each $style,$value in $params {
+            #{$style}:$value;
+        }
+    }
+}
+
 @mixin SetExtensions($params) {
     @each $ext_name in $params {
         @extend %#{$ext_name};
     }
 }
-/*
-* Create templates for component
-* 
-* @param {$template_name} Base template name
-* @param {$params} Associative array includes: Template name modifier and value
-* @param {$style} Css property
-* 
-*/
-@mixin BootCreateTemplate($template_name, $params, $style) {
-    @each $modify, $value in $params {
-        %#{$template_name}-#{$modify} {
-            #{$style}:#{$value}
+
+@mixin ChangeVar($style,$new_value,$breakpoint){
+    @media only screen and (max-width:$breakpoint) {
+        #{$style}:$new_value;
+    }
+}
+
+@mixin ChangeVarMobFirst($style,$new_value,$breakpoint){
+    @media only screen and (min-width:$breakpoint) {
+        #{$style}:$new_value;
+    }
+}
+
+@mixin InitialComponent($config){
+    @each $type_style,$style_values in $config{
+        // $str_start: str-length('$button');
+        // $str_end: str-length(quote($style_values));
+        // $modify: $style_values;
+        &{
+            @include Create($type_style,$style_values,$type_style);
         }
     }
 }
-/*
-* Create templates for component with media query
-* 
-* @param {$template_name} Base template name
-* @param {$params} Associative array includes: Template name modifier and value
-* @param {$style} Css property
-* @param {$breakpoint} Media query breakpoint
-* @param {$type} Media query type: min | max
-* 
-*/
-@mixin BootCreateTemplateWithMedia($template_name, $params, $style, $breakpoint, $type) {
-    @if map-has-key($media, $breakpoint) {
-        @each $modify, $value in $params {
-            %#{$template_name}-#{$modify} {
-                @media only screen and (#{$type}-width: #{map-get($media, $breakpoint)}) {
-                    #{$style}:#{$value}
-                }
-            }
-        }
-    }
-    @else {
-        @warn "Unfortunately, no value could be retrieved from your breakpoint. "
-            + "Please make sure it is defined in `$breakpoints` map.";
-    }
-    
+/* Mixins for _creater section  */
+@mixin InitialBackImage ($url, $backSize, $position) {
+    background-image: url($url);
+    background-repeat: no-repeat;
+    background-size: $backSize;
+    background-position: $position;
 }
 /*
 * Create templates for component via range of template name and styles
-* 
+*
 * @param {$classes_range} Associative array includes: template name and style
 * @param {$params} Associative array includes: Template name modifier and value
-* 
+*
 */
 @mixin BootCreateRangeTemplate($classes_range, $params) {
     @each $template_name, $style in $classes_range {
@@ -233,12 +170,12 @@
 }
 /*
 * Create templates for component with media query via range of template name and styles
-* 
+*
 * @param {$classes_range} Associative array includes: template name and style
 * @param {$params} Associative array includes: Template name modifier and value
 * @param {$breakpoint} Media query breakpoint
 * @param {$type} Media query type: min | max
-* 
+*
 */
 @mixin BootCreateRangeMediaTemplate($classes_range, $params, $breakpoint, $type) {
     @if map-has-key($media, $breakpoint) {
@@ -258,33 +195,138 @@
     }
 }
 /*
-* Generate template and his style rules via params
-* 
+* Create classes for component via range of class name and styles
+*
+* @param {$classes_range} Associative array includes: template name and style
 * @param {$params} Associative array includes: Template name modifier and value
-* 
+*
+*/
+@mixin BootCreateRangeClass($classes_range, $params) {
+    @each $template_name, $style in $classes_range {
+        @each $modify, $value in $params {
+            .#{$template_name}-#{$modify} {
+                #{$style}:#{$value} !important;
+            }
+        }
+    }
+}
+/*
+* Create classes for component with media query via range of class name and styles
+*
+* @param {$classes_range} Associative array includes: template name and style
+* @param {$params} Associative array includes: Template name modifier and value
+* @param {$breakpoint} Media query breakpoint
+* @param {$type} Media query type: min | max
+*
+*/
+@mixin BootCreateRangeMediaClass($classes_range, $params, $breakpoint, $type) {
+    @if map-has-key($media, $breakpoint) {
+        @each $template_name, $style in $classes_range {
+            @each $modify, $value in $params {
+                .#{$breakpoint}--#{$template_name}-#{$modify} {
+                    @media only screen and (#{$type}-width: #{map-get($media, $breakpoint)}) {
+                        #{$style}:#{$value} !important;
+                    }
+                }
+            }
+        }
+    }
+    @else {
+        @warn "Unfortunately, no value could be retrieved from your breakpoint. "
+            + "Please make sure it is defined in `$breakpoints` map.";
+    }
+}
+/*
+* Put your styles to media query
+*
+* @param {$media} Associated array of media query name and value in px
+* @param {$breakpoint} Media query breakpoint
+* @param {$type} Media query type: min | max
+* @param {$mediaType} Media query type: width | height
+*
+*/
+@mixin ConnectMedia($media,$breakpoint,$type,$mediaType) {
+    @media only screen and (#{$type}-#{$mediaType}: #{map-get($media, $breakpoint)}) {
+        @content;
+    }
+}
+/*
+* Put your styles to media query with defined width or height [new]
+*
+* @param {$type} Media query type: min | max
+* @param {$mediaType} Media query type: width | height
+* @param {$mediaValue} Media query size: example 750px
+*
+*/
+@mixin ConnectMediaDefined($type,$mediaType, $mediaValue) {
+    @media only screen and (#{$type}-#{$mediaType}: #{$mediaValue}) {
+        @content;
+    }
+}
+/*
+* Put your styles to media query with screen width and height params
+*
+* @param {$media} Associated params with media name and value
+* @param {$breakpoint} Media query breakpoint
+* @param {$type} Media query type: min | max
+* @param {media-horizontal} Associated params with media name and value for horizontal
+* @param {$breakpointHorizontal} Media query breakpoint horizontal screen
+* @param {$typeHorizontal} Media query type: min | max for horizontal
+*
+*/
+@mixin ConnectMediaFull($media, $breakpoint, $type, $media-horizontal, $breakpointHorizontal,$typeHorizontal) {
+    @media only screen and (#{$type}-width: #{map-get($media, $breakpoint)}) and (#{$typeHorizontal}-width: #{map-get($media-horizontal, $breakpointHorizontal)}) {
+        @content;
+    }
+}
+/*
+* Generate template and his style rules via params
+*
+* @param {$params} Associative array includes: Template name modifier and value
+*
 */
 @mixin BootGenerateTemplateFromParams($params) {
- 
+
     @each $class_name, $style_rule in $params {
 
         @each $style, $value in $style_rule {
-            
+
             %#{$class_name}{
-                #{$style}: #{$value};
+                #{$style}: #{$value} !important;
+            }
+        }
+    }
+}
+/*
+* Generate template and his style rules via params on hover effect
+*
+* @param {$params} Associative array includes: Template name modifier and value
+*
+*/
+@mixin BootGenerateHoverTemplateFromParams($params) {
+
+    @each $class_name, $style_rule in $params {
+
+        @each $style, $value in $style_rule {
+
+            %hov-#{$class_name}{
+                &:hover{
+                    #{$style}: #{$value} !important;
+                }
             }
         }
     }
 }
 /*
 * Generate template and his style rules via params with media queries
-* 
+*
 * @param {$params} Associative array includes: Template name modifier and value
 * @param {$breakpoints_config} Associative array includes: media query breakpoint name and his value in px
 * @param {$breakpoin_type} breakpoin type: max or min (width)
-* 
+*
 */
 @mixin BootMediaGenerateTemplateFromParams($params, $breakpoints_config, $breakpoin_type) {
- 
+
     @each $class_name, $style_rule in $params {
 
         @each $style, $value in $style_rule {
@@ -292,12 +334,76 @@
             @each $breakpoint_name, $breakpoint_value in $breakpoints_config {
 
                 @media only screen and (#{$breakpoin_type}-width: #{$breakpoint_value}) {
+                    %#{$breakpoint_name}--#{$class_name}{
+                        #{$style}: #{$value} !important;
+                    }
+                }
+            }
+
+        }
+    }
+}
+/*
+* Generate classes and his style rules via params
+*
+* @param {$params} Associative array includes: Class name modifier and value
+*
+*/
+@mixin BootGenerateClassFromParams($params) {
+
+    @each $class_name, $style_rule in $params {
+
+        @each $style, $value in $style_rule {
+
+            .#{$class_name}{
+                #{$style}: #{$value};
+            }
+        }
+    }
+}
+/*
+* Generate classes and his style rules via params on hover effect
+*
+* @param {$params} Associative array includes: Class name modifier and value
+*
+*/
+@mixin BootGenerateHoverClassFromParams($params) {
+
+    @each $class_name, $style_rule in $params {
+
+        @each $style, $value in $style_rule {
+
+            .hov-#{$class_name}{
+                &:hover{
+                    #{$style}: #{$value};
+                }
+            }
+        }
+    }
+}
+/*
+* Generate classes and his style rules via params with media queries
+*
+* @param {$params} Associative array includes: Class name modifier and value
+* @param {$breakpoints_config} Associative array includes: media query breakpoint name and his value in px
+* @param {$breakpoint_type} breakpoint type: max or min (width)
+*
+*/
+@mixin BootMediaGenerateClassFromParams($params, $breakpoints_config, $breakpoint_type) {
+
+    @each $class_name, $style_rule in $params {
+
+        @each $style, $value in $style_rule {
+
+            @each $breakpoint_name, $breakpoint_value in $breakpoints_config {
+
+                @media only screen and (#{$breakpoint_type}-width: #{$breakpoint_value}) {
                     .#{$breakpoint_name}--#{$class_name}{
                         #{$style}: #{$value};
                     }
                 }
             }
-            
+
         }
     }
 }

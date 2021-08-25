@@ -1,0 +1,26 @@
+@import "vars";
+@import "maker";
+
+/*
+ * Generate templates
+ * Generate extensions with name '%cl-white' (example)
+ */
+@include BootGenerateTemplateFromParams($colors_basic_rules);
+@include BootMediaGenerateTemplateFromParams($colors_basic_rules, $media, $media-type);
+/*
+ * Generate templates on hover
+ * Generate extensions with name '%hov-cl-white' (example)
+ */
+ @include BootGenerateHoverTemplateFromParams($colors_basic_rules);
+/*
+ * Generate classes
+ * Generate class with name '.cl-white' (example)
+ * Generate class with name '.{breakpoint}--cl-white' (example)
+ */
+@include BootGenerateClassFromParams($colors_basic_rules);
+@include BootMediaGenerateClassFromParams($colors_basic_rules, $media, $media-type);
+/*
+ * Generate classes
+ * Generate class with name '.hov-cl-white' (example)
+ */
+ @include BootGenerateHoverClassFromParams($colors_basic_rules);

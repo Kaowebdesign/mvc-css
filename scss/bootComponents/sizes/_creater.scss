@@ -1,0 +1,16 @@
+@import "vars";
+@import "maker";
+
+/*
+ * Generate templates
+ * Generate extensions with name '%w-100' (example)
+ */
+@include BootGenerateTemplateFromParams($sizes_basic_rules);
+@include BootMediaGenerateTemplateFromParams($sizes_basic_rules, $media, $media-type);
+/*
+ * Generate classes
+ * Generate class with name '.w-100' (example)
+ * Generate class with name '.{breakpoint}--w-100' (example)
+ */
+@include BootGenerateClassFromParams($sizes_basic_rules);
+@include BootMediaGenerateClassFromParams($sizes_basic_rules, $media, $media-type);

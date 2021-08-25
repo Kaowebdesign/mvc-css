@@ -1,9 +1,3 @@
-/*
-* Extends variables of Parent Component
-*/
-
-@import "../../configComponents/parentComponent/vars";
-
 $padding_base: (
    'pd':'padding',
    'pd-t':'padding-top',
@@ -21,28 +15,37 @@ $padding_y_base: (
 );
 
 $padding_config:(
+   0: map-get($map: $config, $key: 'padding') * 0,
    1: map-get($map: $config, $key: 'padding') * 1,
    2: map-get($map: $config, $key: 'padding') * 2,
    3: map-get($map: $config, $key: 'padding') * 3,
    4: map-get($map: $config, $key: 'padding') * 4,
    5: map-get($map: $config, $key: 'padding') * 5,
-   6: map-get($map: $config, $key: 'padding') * 10
+   6: map-get($map: $config, $key: 'padding') * 6,
+   7: map-get($map: $config, $key: 'padding') * 7,
+   8: map-get($map: $config, $key: 'padding') * 8
 );
 
 $padding_x_config: (
+   0: 0 map-get($map: $padding_config, $key: 0),
    1: 0 map-get($map: $padding_config, $key: 1),
    2: 0 map-get($map: $padding_config, $key: 2),
    3: 0 map-get($map: $padding_config, $key: 3),
    4: 0 map-get($map: $padding_config, $key: 4),
    5: 0 map-get($map: $padding_config, $key: 5),
-   6: 0 map-get($map: $padding_config, $key: 6)
+   6: 0 map-get($map: $padding_config, $key: 6),
+   7: 0 map-get($map: $padding_config, $key: 7),
+   8: 0 map-get($map: $padding_config, $key: 8)
 );
 
 $padding_y_config: (
+   0: map-get($map: $padding_config, $key: 0) 0,
    1: map-get($map: $padding_config, $key: 1) 0,
    2: map-get($map: $padding_config, $key: 2) 0,
    3: map-get($map: $padding_config, $key: 3) 0,
    4: map-get($map: $padding_config, $key: 4) 0,
    5: map-get($map: $padding_config, $key: 5) 0,
-   6: map-get($map: $padding_config, $key: 6) 0
+   6: map-get($map: $padding_config, $key: 6) 0,
+   7: map-get($map: $padding_config, $key: 7) 0,
+   8: map-get($map: $padding_config, $key: 8) 0
 );

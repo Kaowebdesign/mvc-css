@@ -2,7 +2,7 @@
 * Parent component _vars.scss
 * 
 * Here you can describe some basic variables for your child components.
-* Set up you margin value, padding value, website color ect.
+* Set up you started margin value, padding value, website color ect.
 * 
 */
 
@@ -13,7 +13,9 @@ $config: (
     margin: 8px,
     padding: 8px
 );
-
+/*
+* Basic media queries
+*/
 $media: (
     xs: 0,
     sm: 576px,
@@ -22,10 +24,26 @@ $media: (
     xl: 1200px,
     xxl: 1400px
 );
-
+/*
+* Media queries type (max / min)
+*/
 $media-type: 'max';
 /*
 * Base colors
 */
 $basicBlack: #000;
 $basicWhite: #fff;
+$basicOrange: #ED5E4A;
+
+$colors: (
+    'primary': '#101010',
+    'secondary': '#FBEA4E',
+    'button':'#FBEA4E',
+    'button-hover': '#FBEA4E',
+    'button-active':'#FBE949',
+    'button-disabled':'#CFCFCF'
+);
+/*
+* Base transition
+*/
+$basicTransition: 0.3s;

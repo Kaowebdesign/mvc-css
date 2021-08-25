@@ -1,0 +1,16 @@
+@import "vars";
+@import "maker";
+
+/*
+ * Generate templates
+ * Generate extensions with name '%txt-center' (example)
+ */
+@include BootGenerateTemplateFromParams($text_basic_rules);
+@include BootMediaGenerateTemplateFromParams($text_basic_rules, $media, $media-type);
+/*
+ * Generate classes
+ * Generate class with name '.txt-center' (example)
+ * Generate class with name '.{breakpoint}--txt-center' (example)
+ */
+@include BootGenerateClassFromParams($text_basic_rules);
+@include BootMediaGenerateClassFromParams($text_basic_rules, $media, $media-type);

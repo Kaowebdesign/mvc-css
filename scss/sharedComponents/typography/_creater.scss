@@ -1,0 +1,47 @@
+@import "vars";
+@import "maker";
+
+.typography{
+    &_size{
+        &_sub-1 {
+            @include SetConfig($typography_sub-1);
+            @include SetConfigMedia($typography_sub-1_xxl, map-get($media,'xxl'));
+            @include SetConfigMedia($typography_sub-1_xxl, map-get($media,'xl'));
+            @include SetConfigMedia($typography_sub-1_xxl, map-get($media,'lg'));
+            @include SetConfigMedia($typography_sub-1_xxl, map-get($media,'md'));
+            @include SetConfigMedia($typography_sub-1_sm, map-get($media,'sm'));
+        }
+        &_sub-2{
+            @include SetConfig($typography_sub-2);
+            @include SetConfigMedia($typography_sub-2_xxl, map-get($media,'xxl'));
+            @include SetConfigMedia($typography_sub-2_xxl, map-get($media,'xl'));
+            @include SetConfigMedia($typography_sub-2_xxl, map-get($media,'lg'));
+            @include SetConfigMedia($typography_sub-2_xxl, map-get($media,'md'));
+            @include SetConfigMedia($typography_sub-2_sm, map-get($media,'sm'));
+        }
+        &_button {
+            @include SetConfig($typography_button);
+            @include SetConfigMedia($typography_button_xxl, map-get($media,'xxl'));
+            @include SetConfigMedia($typography_button_xxl, map-get($media,'xl'));
+            @include SetConfigMedia($typography_button_xxl, map-get($media,'lg'));
+            @include SetConfigMedia($typography_button_xxl, map-get($media,'md'));
+            @include SetConfigMedia($typography_button_sm, map-get($media,'sm'));
+        }
+        &_body {
+            @include SetConfig($typography_body);
+            @include SetConfigMedia($typography_body_xxl, map-get($media,'xxl'));
+            @include SetConfigMedia($typography_body_xxl, map-get($media,'xl'));
+            @include SetConfigMedia($typography_body_xxl, map-get($media,'lg'));
+            @include SetConfigMedia($typography_body_xxl, map-get($media,'md'));
+            @include SetConfigMedia($typography_body_sm, map-get($media,'sm'));
+        }
+        &_caption {
+            @include SetConfig($typography_caption);
+            @include SetConfigMedia($typography_caption_xxl, map-get($media,'xxl'));
+            @include SetConfigMedia($typography_caption_xxl, map-get($media,'xl'));
+            @include SetConfigMedia($typography_caption_xxl, map-get($media,'lg'));
+            @include SetConfigMedia($typography_caption_xxl, map-get($media,'md'));
+            @include SetConfigMedia($typography_caption_sm, map-get($media,'sm'));
+        }
+    }
+}

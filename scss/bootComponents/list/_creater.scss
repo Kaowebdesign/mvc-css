@@ -1,0 +1,16 @@
+@import "vars";
+@import "maker";
+
+/*
+ * Generate templates
+ * Generate extensions with name '%list-style-type' (example)
+ */
+@include BootGenerateTemplateFromParams($list_basic_rules);
+@include BootMediaGenerateTemplateFromParams($list_basic_rules, $media, $media-type);
+/*
+ * Generate classes
+ * Generate class with name '.list-style-type' (example)
+ * Generate class with name '.{breakpoint}--list-style-type' (example)
+ */
+@include BootGenerateClassFromParams($list_basic_rules);
+@include BootMediaGenerateClassFromParams($list_basic_rules, $media, $media-type);

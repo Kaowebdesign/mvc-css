@@ -1,0 +1,16 @@
+@import "vars";
+@import "maker";
+
+/*
+ * Generate templates
+ * Generate extensions with name '%bg-white' (example)
+ */
+@include BootGenerateTemplateFromParams($back_basic_rules);
+@include BootMediaGenerateTemplateFromParams($back_basic_rules, $media, $media-type);
+/*
+ * Generate classes
+ * Generate class with name '.bg-white' (example)
+ * Generate class with name '.{breakpoint}--bg-white' (example)
+ */
+@include BootGenerateClassFromParams($back_basic_rules);
+@include BootMediaGenerateClassFromParams($back_basic_rules, $media, $media-type);

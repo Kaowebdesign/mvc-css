@@ -1,0 +1,16 @@
+@import "vars";
+@import "maker";
+
+/*
+ * Generate templates
+ * Generate extensions with name '%ds-block' (example)
+ */
+@include BootGenerateTemplateFromParams($display_basic_rules);
+@include BootMediaGenerateTemplateFromParams($display_basic_rules, $media, $media-type);
+/*
+ * Generate classes
+ * Generate class with name '.ds-block' (example)
+ * Generate class with name '.{breakpoint}--ds-block' (example)
+ */
+@include BootGenerateClassFromParams($display_basic_rules);
+@include BootMediaGenerateClassFromParams($display_basic_rules, $media, $media-type);

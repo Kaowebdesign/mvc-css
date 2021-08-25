@@ -1,0 +1,19 @@
+/*
+* Basic text class/template names and his rules
+*/
+
+$text_basic_rules: (
+    'txt-left': ('text-align':'left'),
+    'txt-right':('text-align': 'right'),
+    'txt-center':('text-align': 'center'),
+    'txt-upper': ('text-transform': 'uppercase'),
+    'txt-capital': ('text-transform': 'capitalize'),
+    'txt-lower': ('text-transform': 'lowercase'),
+    'txt-under': ('text-decoration': 'underline'),
+    'txt-no-dec': ('text-decoration': 'none'),
+    'txt-no-wrap': ('white-space': 'nowrap'),
+    'txt-regular': ('font-weight':'400'),
+    'txt-medium': ('font-weight':'500'),
+    'txt-semi': ('font-weight':'600'),
+    'txt-bold': ('font-weight':'700')
+);

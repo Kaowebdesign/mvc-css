@@ -1,3 +1,5 @@
+@import "../../configComponents/parentComponent/creater";
+
 @import "vars";
 @import "maker";
 
@@ -8,6 +10,17 @@
 @import "../padding/creater";
 @import "../media/creater";
 @import "../flex/creater";
+@import "../backgrounds/creater";
+@import "../border/creater";
+@import "../colors/creater";
+@import "../display/creater";
+@import "../font/creater";
+@import "../shadow/creater";
+@import "../text/creater";
+@import "../list/creater";
+@import "../position/creater";
+@import "../sizes/creater";
+@import "../decoration/creater";
 /*
 * Create classes via boot components 
 */

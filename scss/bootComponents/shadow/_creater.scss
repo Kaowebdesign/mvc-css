@@ -1,0 +1,16 @@
+@import "vars";
+@import "maker";
+
+/*
+ * Generate templates
+ * Generate extensions with name '%sha-primary' (example)
+ */
+@include BootGenerateTemplateFromParams($shadow_basic_rules);
+@include BootMediaGenerateTemplateFromParams($shadow_basic_rules, $media, $media-type);
+/*
+ * Generate classes
+ * Generate class with name '.sha-primary' (example)
+ * Generate class with name '.{breakpoint}--sha-primary' (example)
+ */
+@include BootGenerateClassFromParams($shadow_basic_rules);
+@include BootMediaGenerateClassFromParams($shadow_basic_rules, $media, $media-type);

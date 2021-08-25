@@ -1,0 +1,16 @@
+@import "vars";
+@import "maker";
+
+/*
+ * Generate templates
+ * Generate extensions with name '%br-primary' (example)
+ */
+@include BootGenerateTemplateFromParams($border_basic_rules);
+@include BootMediaGenerateTemplateFromParams($border_basic_rules, $media, $media-type);
+/*
+ * Generate classes
+ * Generate class with name '.br-primary' (example)
+ * Generate class with name '.{breakpoint}--br-primary' (example)
+ */
+@include BootGenerateClassFromParams($border_basic_rules);
+@include BootMediaGenerateClassFromParams($border_basic_rules, $media, $media-type);

@@ -1,0 +1,19 @@
+/*
+* Basic text class/template names and his rules
+*/
+
+$colors_basic_rules: (
+    'cl-white': ('color':'#ffffff'),
+    'cl-white-80': ('color':'rgba(255,255,255,.8)'),
+    'cl-white-60': ('color':'rgba(255,255,255,.6)'),
+    'cl-white-40': ('color':'rgba(255,255,255,.4)'),
+    'cl-white-20': ('color':'rgba(255,255,255,.2)'),
+    'cl-white-10': ('color':'rgba(255,255,255,.1)'),
+    'cl-black':('color': '#000000'),
+    'cl-primary':('color': map-get($map: $colors, $key: 'primary')),
+    'cl-secondary':('color':  map-get($map: $colors, $key: 'secondary')),
+    'cl-primary-light':('color':'#575123'),
+);
+
+$clPrimary:  #{map-get($map: $colors, $key: 'primary')};
+$clSecondary: #{map-get($map: $colors, $key: 'secondary')};

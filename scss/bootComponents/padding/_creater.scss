@@ -1,5 +1,3 @@
-@import "../../configComponents/parentComponent/creator";
-
 @import "vars";
 @import "maker";
 
@@ -13,27 +11,53 @@
 @include BootCreateRangeTemplate($padding_base,$padding_config);
 @include BootCreateRangeTemplate($padding_x_base,$padding_x_config);
 @include BootCreateRangeTemplate($padding_y_base,$padding_y_config);
+
+@include BootCreateRangeClass($padding_base,$padding_config);
+@include BootCreateRangeClass($padding_x_base,$padding_x_config);
+@include BootCreateRangeClass($padding_y_base,$padding_y_config);
 /*
 *
 * Generate extensions with media queries and name 'pd-{breakpoint}-{number}' | 'pd-{size}-{breakpoint}-{number}'
 * 
 */
-@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'sm','min');
-@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'sm','min');
-@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'sm','min');
+@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'sm',$media-type);
+@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'sm',$media-type);
+@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'sm',$media-type);
 
-@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'md','min');
-@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'md','min');
-@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'md','min');
+@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'md',$media-type);
+@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'md',$media-type);
+@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'md',$media-type);
 
-@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'lg','min');
-@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'lg','min');
-@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'lg','min');
+@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'lg',$media-type);
+@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'lg',$media-type);
+@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'lg',$media-type);
 
-@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'xl','min');
-@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'xl','min');
-@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'xl','min');
+@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'xl',$media-type);
+@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'xl',$media-type);
+@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'xl',$media-type);
 
-@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'xxl','min');
-@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'xxl','min');
-@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'xxl','min');
+@include BootCreateRangeMediaTemplate($padding_base,$padding_config,'xxl',$media-type);
+@include BootCreateRangeMediaTemplate($padding_x_base,$padding_x_config,'xxl',$media-type);
+@include BootCreateRangeMediaTemplate($padding_y_base,$padding_y_config,'xxl',$media-type);
+
+
+
+@include BootCreateRangeMediaClass($padding_base,$padding_config,'sm',$media-type);
+@include BootCreateRangeMediaClass($padding_x_base,$padding_x_config,'sm',$media-type);
+@include BootCreateRangeMediaClass($padding_y_base,$padding_y_config,'sm',$media-type);
+
+@include BootCreateRangeMediaClass($padding_base,$padding_config,'md',$media-type);
+@include BootCreateRangeMediaClass($padding_x_base,$padding_x_config,'md',$media-type);
+@include BootCreateRangeMediaClass($padding_y_base,$padding_y_config,'md',$media-type);
+
+@include BootCreateRangeMediaClass($padding_base,$padding_config,'lg',$media-type);
+@include BootCreateRangeMediaClass($padding_x_base,$padding_x_config,'lg',$media-type);
+@include BootCreateRangeMediaClass($padding_y_base,$padding_y_config,'lg',$media-type);
+
+@include BootCreateRangeMediaClass($padding_base,$padding_config,'xl',$media-type);
+@include BootCreateRangeMediaClass($padding_x_base,$padding_x_config,'xl',$media-type);
+@include BootCreateRangeMediaClass($padding_y_base,$padding_y_config,'xl',$media-type);
+
+@include BootCreateRangeMediaClass($padding_base,$padding_config,'xxl',$media-type);
+@include BootCreateRangeMediaClass($padding_x_base,$padding_x_config,'xxl',$media-type);
+@include BootCreateRangeMediaClass($padding_y_base,$padding_y_config,'xxl',$media-type);
